@@ -1,0 +1,15 @@
+semaine 0,5:
+
+en ce qui concerne la semaine 0,5 suite aux explications du prof concernant comment faire la grille , on a créé une nouvelle classe cell qui modélise chaque cellule de
+la grille avec des attributs internes tel que __sud qui donne si y'a une barriere en bas .
+on a aussi réussi a faire la grille et la modéliser ainsi que les + qui se trouve dans la grille on a reussi a les faire
+on avait deja fait le makefile
+on a aussi réussi a faire la modélisation du jeu pour un humain du coup on a terminé la partie 2-1 concernant la modélisation du jeu ,
+il nous reste juste la partie ou on doit utiliser le module queue comme vous pourrez le constater.
+
+
+semaine 0.75:
+on a toujours pas reussi a faire la partie concernant queue mais on a fait les fichiers rst de la documentation.
+
+semaine 1:
+On a réussi à tout faire.

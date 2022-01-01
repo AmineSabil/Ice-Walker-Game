@@ -1,0 +1,361 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>cell module &mdash; ICE WALKER 0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="ICE WALKER 0 documentation" href="index.html" />
+    <link rel="next" title="projet module" href="projet.html" />
+    <link rel="prev" title="grid module" href="grid.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="projet.html" title="projet module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="grid.html" title="grid module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">ICE WALKER 0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="cell-module">
+<h1><code class="xref py py-mod docutils literal"><span class="pre">cell</span></code> module<a class="headerlink" href="#cell-module" title="Permalink to this headline">¶</a></h1>
+<p>Ce module définit une classe Cell qui représente une cellule dans le plateau de jeu.</p>
+<div class="section" id="class-description">
+<h2>Class description<a class="headerlink" href="#class-description" title="Permalink to this headline">¶</a></h2>
+<p>Une classe pour représenter une cellule dans le plateau de jeu.</p>
+<div class="section" id="la-classe-cell">
+<h3>La classe <code class="xref py py-class docutils literal"><span class="pre">Cell</span></code><a class="headerlink" href="#la-classe-cell" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="cell.Cell">
+<em class="property">class </em><code class="descclassname">cell.</code><code class="descname">Cell</code><span class="sig-paren">(</span><em>est=False</em>, <em>sud=False</em>, <em>plus=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cell.html#Cell"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cell.Cell" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cel</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cel</span><span class="o">.</span><span class="n">get_est</span><span class="p">()</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cel</span><span class="o">.</span><span class="n">get_sud</span><span class="p">()</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cel</span><span class="o">.</span><span class="n">set_walls</span><span class="p">(</span><span class="s1">&#39;E&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cel</span><span class="o">.</span><span class="n">get_est</span><span class="p">()</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cel</span><span class="o">.</span><span class="n">set_contenu</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cel</span><span class="o">.</span><span class="n">get_contenu</span><span class="p">()</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cel</span><span class="o">.</span><span class="n">set_walls</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cel</span><span class="o">.</span><span class="n">get_sud</span><span class="p">()</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<div class="section" id="methodes">
+<h4>Méthodes<a class="headerlink" href="#methodes" title="Permalink to this headline">¶</a></h4>
+<dl class="method">
+<dt id="cell.Cell.get_est">
+<code class="descclassname">Cell.</code><code class="descname">get_est</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cell.html#Cell.get_est"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cell.Cell.get_est" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cette fonction nous informe de la présence d’un mur est dans self</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True s’il y a mur est dans self, False sinon</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">(bool)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Exemples:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cel</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cel</span><span class="o">.</span><span class="n">get_est</span><span class="p">()</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cell.Cell.get_sud">
+<code class="descclassname">Cell.</code><code class="descname">get_sud</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cell.html#Cell.get_sud"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cell.Cell.get_sud" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cette fonction nous informe de la présence d’un mur sud dans self</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True s’il y a mur sud dans self, False sinon</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">(bool)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Exemples:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cel</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cel</span><span class="o">.</span><span class="n">get_sud</span><span class="p">()</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cel1</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cel1</span><span class="o">.</span><span class="n">set_sud</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cel1</span><span class="o">.</span><span class="n">get_sud</span><span class="p">()</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cell.Cell.get_plus">
+<code class="descclassname">Cell.</code><code class="descname">get_plus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cell.html#Cell.get_plus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cell.Cell.get_plus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cette fonction nous informe de la présence d’un plus dans self</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True s’il y a un plus dans self, False sinon</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">(bool)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Exemples:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cel</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cel</span><span class="o">.</span><span class="n">get_plus</span><span class="p">()</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cel1</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cel1</span><span class="o">.</span><span class="n">set_plus</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cel1</span><span class="o">.</span><span class="n">get_plus</span><span class="p">()</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cell.Cell.get_contenu">
+<code class="descclassname">Cell.</code><code class="descname">get_contenu</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cell.html#Cell.get_contenu"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cell.Cell.get_contenu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cette fonction permet de savoir le contenu dans self</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">le contenu dans self</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">(str)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Exemple:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cel</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cel</span><span class="o">.</span><span class="n">set_contenu</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cel</span><span class="o">.</span><span class="n">get_contenu</span><span class="p">()</span>
+<span class="go">0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cell.Cell.set_est">
+<code class="descclassname">Cell.</code><code class="descname">set_est</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cell.html#Cell.set_est"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cell.Cell.set_est" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cette fonction permet de mettre un mur est dans self</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">CU:</th><td class="field-body">None</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Sideeffect:</th><td class="field-body">met un mur est dans la cellule</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Exemple:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cel</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cel</span><span class="o">.</span><span class="n">set_est</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cel</span><span class="o">.</span><span class="n">get_est</span><span class="p">()</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cell.Cell.set_sud">
+<code class="descclassname">Cell.</code><code class="descname">set_sud</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cell.html#Cell.set_sud"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cell.Cell.set_sud" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cette fonction permet de mettre un mur sud dans self</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">CU:</th><td class="field-body">None</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Sideeffect:</th><td class="field-body">met un mur sud dans la cellule</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Exemple:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cel</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cel</span><span class="o">.</span><span class="n">set_sud</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cel</span><span class="o">.</span><span class="n">get_sud</span><span class="p">()</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cell.Cell.set_plus">
+<code class="descclassname">Cell.</code><code class="descname">set_plus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cell.html#Cell.set_plus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cell.Cell.set_plus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cette fonction permet de mettre un plus dans la cellule</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">CU:</th><td class="field-body">None</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Sideeffect:</th><td class="field-body">met un plus dans la cellule</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Exemple:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cel</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cel</span><span class="o">.</span><span class="n">set_plus</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cel</span><span class="o">.</span><span class="n">get_plus</span><span class="p">()</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cell.Cell.set_contenu">
+<code class="descclassname">Cell.</code><code class="descname">set_contenu</code><span class="sig-paren">(</span><em>c</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cell.html#Cell.set_contenu"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cell.Cell.set_contenu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cette fonction permet de mettre c dans le contenu de self</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>c</strong> (<em>(</em><em>str</em><em>)</em>) – un caractère représentant le nouveau contenu de self</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Sideeffect:</th><td class="field-body">change le contenu de la cellule</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">CU:</th><td class="field-body">None</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Exemple:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cel</span> <span class="o">=</span> <span class="n">Cell</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cel</span><span class="o">.</span><span class="n">set_contenu</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cel</span><span class="o">.</span><span class="n">get_contenu</span><span class="p">()</span>
+<span class="go">4</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/UL-FST-informatique-rvb.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><code class="docutils literal"><span class="pre">cell</span></code> module</a><ul>
+<li><a class="reference internal" href="#class-description">Class description</a><ul>
+<li><a class="reference internal" href="#la-classe-cell">La classe <code class="docutils literal"><span class="pre">Cell</span></code></a><ul>
+<li><a class="reference internal" href="#methodes">Méthodes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="grid.html"
+                        title="previous chapter"><code class="docutils literal"><span class="pre">grid</span></code> module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="projet.html"
+                        title="next chapter"><code class="docutils literal"><span class="pre">projet</span></code> module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/cell.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="projet.html" title="projet module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="grid.html" title="grid module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">ICE WALKER 0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        ;<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/"> <img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>. <a href="http://www.fil.univ-lille1.fr">2019, SABIL MOHAMED AMINE and OUWAB ELIDRISSI ELMEHDI, Univ. Lille</a>.
+      Last updated on 11/12/2019.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+    </div>
+  </body>
+</html>

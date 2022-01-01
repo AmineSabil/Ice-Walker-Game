@@ -1,0 +1,422 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>grid &mdash; ICE WALKER 0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="ICE WALKER 0 documentation" href="../index.html" />
+    <link rel="up" title="Module code" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../index.html">ICE WALKER 0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for grid</h1><div class="highlight"><pre>
+<span></span><span class="c1">#AUTEURS: SABIL MOHAMED AMINE , OUWAB ELIDRISSI ELMEHDI</span>
+<span class="kn">from</span> <span class="nn">cell</span> <span class="k">import</span> <span class="n">Cell</span>
+
+<div class="viewcode-block" id="ajout_plus"><a class="viewcode-back" href="../grid.html#grid.ajout_plus">[docs]</a><span class="k">def</span> <span class="nf">ajout_plus</span><span class="p">(</span><span class="n">grille</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    :param grille: la liste qui represente la grille du jeu</span>
+<span class="sd">    :type grille: (list)</span>
+<span class="sd">    :CU: Aucune</span>
+<span class="sd">    :effet de bord: ajout les plus dans la grille .</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">grille</span><span class="p">:</span> <span class="c1">#ajout des plus dans la grille</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)):</span>
+            <span class="k">if</span>  <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get_est</span><span class="p">()</span> <span class="ow">and</span> <span class="n">grille</span><span class="p">[</span><span class="n">grille</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get_est</span><span class="p">():</span>
+                <span class="n">grille</span><span class="p">[</span><span class="n">grille</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_plus</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get_sud</span><span class="p">()</span> <span class="ow">and</span> <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get_est</span><span class="p">():</span>
+                <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_plus</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_est</span><span class="p">()</span> <span class="ow">and</span> <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get_sud</span><span class="p">():</span>
+                <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_plus</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get_est</span><span class="p">()</span> <span class="ow">and</span> <span class="n">grille</span><span class="p">[</span><span class="n">grille</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get_sud</span><span class="p">():</span>
+                <span class="n">grille</span><span class="p">[</span><span class="n">grille</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_plus</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_est</span><span class="p">()</span> <span class="ow">and</span> <span class="n">grille</span><span class="p">[</span><span class="n">grille</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get_sud</span><span class="p">():</span>
+                <span class="n">grille</span><span class="p">[</span><span class="n">grille</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_plus</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get_sud</span><span class="p">()</span> <span class="ow">and</span> <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_sud</span><span class="p">():</span>
+                <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_plus</span><span class="p">()</span></div>
+            
+    
+<div class="viewcode-block" id="intialiser_grille"><a class="viewcode-back" href="../grid.html#grid.intialiser_grille">[docs]</a><span class="k">def</span> <span class="nf">intialiser_grille</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span><span class="n">nbr_player</span><span class="p">,</span><span class="n">final_cell</span><span class="p">,</span><span class="n">players</span><span class="p">,</span><span class="n">walls</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    :param dim: la dimension de la grille</span>
+<span class="sd">    :type dim: tuple</span>
+<span class="sd">    :param nbr_player: le nombre de joueur</span>
+<span class="sd">    :type nbr_player: int</span>
+<span class="sd">    :param final_cell: les coordonnées de la case finale</span>
+<span class="sd">    :type final_cell: tuple</span>
+<span class="sd">    :param players: un dictionnaire qui représente les joueurs et leurs coordonnées</span>
+<span class="sd">    :type players: dict</span>
+<span class="sd">    :param walls: une liste qui représente les coordonnées des murs</span>
+<span class="sd">    :type walls: list</span>
+<span class="sd">    :return: liste de la grille construite à partir de dim,nbr_player,final_cell,players et walls</span>
+<span class="sd">    :rtype: list</span>
+<span class="sd">    :UC: None </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">grille</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dim</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+        <span class="n">temp</span><span class="o">=</span><span class="p">[]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dim</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+            <span class="n">temp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Cell</span><span class="p">())</span>    
+            <span class="k">if</span> <span class="n">j</span><span class="o">==</span><span class="n">dim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">temp</span><span class="p">[</span><span class="n">dim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_walls</span><span class="p">(</span><span class="s1">&#39;E&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="n">dim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">cel</span> <span class="ow">in</span> <span class="n">temp</span><span class="p">:</span>
+                <span class="n">cel</span><span class="o">.</span><span class="n">set_sud</span><span class="p">()</span>
+        <span class="n">grille</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">players</span><span class="p">:</span> <span class="c1">#ajout des joueurs dans la grille</span>
+        <span class="n">grille</span><span class="p">[</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]][</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">set_contenu</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">players</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">t</span><span class="p">)))</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">walls</span><span class="p">:</span> <span class="c1">#ajout des walls dans la grille</span>
+        <span class="n">grille</span><span class="p">[</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]][</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">set_walls</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">grille</span><span class="p">[</span><span class="n">final_cell</span><span class="p">[</span><span class="mi">1</span><span class="p">]][</span><span class="n">final_cell</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">set_contenu</span><span class="p">(</span><span class="s1">&#39;⬜&#39;</span><span class="p">)</span>
+    <span class="n">ajout_plus</span><span class="p">(</span><span class="n">grille</span><span class="p">)</span> <span class="c1">#ajout des plus dans la grille</span>
+    <span class="k">return</span> <span class="n">grille</span></div>
+
+<div class="viewcode-block" id="Grid"><a class="viewcode-back" href="../grid.html#grid.Grid">[docs]</a><span class="k">class</span> <span class="nc">Grid</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    &gt;&gt;&gt; g = Grid.from_file(&#39;grid01.txt&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; g.get_dim()</span>
+<span class="sd">    (16,16)</span>
+<span class="sd">    &gt;&gt;&gt; g.get_number_of_players()</span>
+<span class="sd">    4</span>
+<span class="sd">    &gt;&gt;&gt; g.get_final_cell_coord()</span>
+<span class="sd">    (3, 14)</span>
+<span class="sd">    &gt;&gt;&gt; g.get_player_coord(1)</span>
+<span class="sd">    (0, 0)</span>
+<span class="sd">    &gt;&gt;&gt; g.get_walls_coord()</span>
+<span class="sd">      [(3, 0, &#39;E&#39;), (9, 0, &#39;E&#39;), (13, 1, &#39;E&#39;), (13, 1, &#39;S&#39;), (15, 1, &#39;S&#39;),</span>
+<span class="sd">      (5, 2, &#39;E&#39;), (5, 2, &#39;S&#39;), (9, 2, &#39;S&#39;), (2, 3, &#39;S&#39;), (8, 3, &#39;E&#39;), (14, 3, &#39;S&#39;),</span>
+<span class="sd">      (0, 4, &#39;S&#39;), (2, 4, &#39;E&#39;), (14, 4, &#39;E&#39;), (1, 5, &#39;S&#39;), (6, 5, &#39;E&#39;), (7, 5, &#39;S&#39;),</span>
+<span class="sd">      (0, 6, &#39;E&#39;), (7, 6, &#39;S&#39;), (8, 6, &#39;S&#39;), (11, 6, &#39;E&#39;), (12, 6, &#39;S&#39;), (6, 7, &#39;E&#39;),</span>
+<span class="sd">      (8, 7, &#39;E&#39;), (6, 8, &#39;E&#39;), (7, 8, &#39;S&#39;), (8, 8, &#39;S&#39;), (8, 8, &#39;E&#39;), (3, 9, &#39;E&#39;),</span>
+<span class="sd">      (4, 9, &#39;S&#39;), (6, 9, &#39;S&#39;), (12, 9, &#39;E&#39;), (13, 9, &#39;S&#39;), (0, 10, &#39;S&#39;), (5, 10, &#39;E&#39;),</span>
+<span class="sd">      (7, 11, &#39;S&#39;), (9, 11, &#39;S&#39;), (9, 11, &#39;E&#39;), (15, 11, &#39;S&#39;), (1, 12, &#39;S&#39;),(7, 12, &#39;E&#39;), (14, 12, &#39;S&#39;), (1, 13, &#39;E&#39;), (10, 13, &#39;S&#39;), (14, 13, &#39;E&#39;), (3, 14, &#39;E&#39;), (3, 14, &#39;S&#39;), (9, 14, &#39;E&#39;), (4, 15, &#39;E&#39;), (11, 15, &#39;E&#39;)]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">dim</span><span class="p">,</span><span class="n">nbr_player</span><span class="p">,</span><span class="n">final_cell</span><span class="p">,</span><span class="n">players</span><span class="p">,</span><span class="n">walls</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        construire la grille du jeu, de dimension dim , avec nbr_player joueurs et mettre en place les murs </span>
+
+<span class="sd">        :param dim: la dimension de la grille</span>
+<span class="sd">        :type dim: tuple</span>
+<span class="sd">        :param nbr_player: le nombre de joueur</span>
+<span class="sd">        :type nbr_player: int</span>
+<span class="sd">        :param final_cell: les coordonnées de la case finale</span>
+<span class="sd">        :type final_cell: tuple</span>
+<span class="sd">        :param players: les coordonnées des joueurs</span>
+<span class="sd">        :type players: list</span>
+<span class="sd">        :param walls: les coordonnées des murs</span>
+<span class="sd">        :type walls: list</span>
+<span class="sd">        :return: la grille</span>
+<span class="sd">        :rtype: Grid</span>
+<span class="sd">        :UC: dim[0]&gt;1 and dim[1]&gt;0 and dim[0]==dim[1] and nbr_player&gt;1 and 0&lt;final_cell[0]&lt;dim[0] and 0&lt;final_cell[1]&lt;dim[1]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="n">dim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">dim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span> 
+        <span class="k">assert</span> <span class="n">nbr_player</span><span class="o">&gt;=</span><span class="mi">1</span>
+        <span class="k">assert</span> <span class="mi">0</span><span class="o">&lt;=</span><span class="n">final_cell</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="mi">0</span><span class="o">&lt;=</span><span class="n">final_cell</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__dim</span><span class="o">=</span><span class="n">dim</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__nbr_player</span><span class="o">=</span><span class="n">nbr_player</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__final_cell</span><span class="o">=</span><span class="n">final_cell</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__players</span><span class="o">=</span><span class="nb">dict</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">players</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__players</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">players</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">__walls</span><span class="o">=</span><span class="n">walls</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__grille</span><span class="o">=</span><span class="n">intialiser_grille</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span><span class="n">nbr_player</span><span class="p">,</span><span class="n">final_cell</span><span class="p">,</span><span class="n">players</span><span class="p">,</span><span class="n">walls</span><span class="p">)</span>
+        
+        
+<div class="viewcode-block" id="Grid.from_file"><a class="viewcode-back" href="../grid.html#grid.Grid.from_file">[docs]</a>    <span class="k">def</span> <span class="nf">from_file</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        récupérer les informations nécessaires pour construire la grille , notamment sa dimension,les coordonnées de la case finale,le nombre de joueurs, les coordonnées des joueurs ainsi que</span>
+<span class="sd">        les coordonnées des murs</span>
+<span class="sd">        :param file: un fichier qui contient les details de la grille</span>
+<span class="sd">        :type file: (file)</span>
+<span class="sd">        :CU: None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">canal</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span><span class="s1">&#39;rt&#39;</span><span class="p">)</span>
+        <span class="n">liste_fichier</span><span class="o">=</span><span class="p">[]</span>
+        <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+        <span class="n">ligne</span><span class="o">=</span> <span class="n">canal</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span> 
+        <span class="k">while</span> <span class="ow">not</span> <span class="n">ligne</span><span class="o">==</span><span class="s1">&#39;&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">ligne</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;#&quot;</span><span class="p">:</span>
+                <span class="n">liste_fichier</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ligne</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span>
+            <span class="n">ligne</span><span class="o">=</span><span class="n">canal</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+        <span class="n">dim</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">liste_fichier</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">))</span>
+        <span class="n">final_cell</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">liste_fichier</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">))</span>
+        <span class="n">nbr_player</span><span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">liste_fichier</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+        <span class="n">players</span> <span class="o">=</span> <span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">liste_fichier</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="o">+</span><span class="n">nbr_player</span><span class="p">)]</span>
+        <span class="n">walls</span><span class="o">=</span><span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="o">+</span><span class="n">nbr_player</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">liste_fichier</span><span class="p">)):</span>
+            <span class="n">t</span><span class="o">=</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">liste_fichier</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">j</span> <span class="ow">in</span> <span class="s1">&#39;OESN&#39;</span><span class="p">:</span>
+                    <span class="n">t</span><span class="o">+=</span><span class="p">(</span><span class="n">j</span><span class="p">,)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">t</span><span class="o">+=</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">j</span><span class="p">),)</span>
+            <span class="n">walls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+        <span class="n">canal</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>       
+        <span class="k">return</span> <span class="n">Grid</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span><span class="n">nbr_player</span><span class="p">,</span><span class="n">final_cell</span><span class="p">,</span><span class="n">players</span><span class="p">,</span><span class="n">walls</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="Grid.get_dim"><a class="viewcode-back" href="../grid.html#grid.Grid.get_dim">[docs]</a>    <span class="k">def</span> <span class="nf">get_dim</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: la dimension de la grille</span>
+<span class="sd">        :rtype: tuple</span>
+<span class="sd">        :UC: none</span>
+<span class="sd">        :Exemple:</span>
+
+<span class="sd">        &gt;&gt;&gt; g = Grid.from_file(&#39;grid02.txt&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; g.get_dim()</span>
+<span class="sd">        (10,10)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dim</span></div>
+    
+<div class="viewcode-block" id="Grid.get_number_of_players"><a class="viewcode-back" href="../grid.html#grid.Grid.get_number_of_players">[docs]</a>    <span class="k">def</span> <span class="nf">get_number_of_players</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: le nombre de joueurs dans la partie</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        :UC: none</span>
+<span class="sd">        :Exemple:</span>
+
+<span class="sd">        &gt;&gt;&gt; g = Grid.from_file(&#39;grid02.txt&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; g.get_final_cell_coord()</span>
+<span class="sd">        (2, 7)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nbr_player</span></div>
+    
+<div class="viewcode-block" id="Grid.get_final_cell_coord"><a class="viewcode-back" href="../grid.html#grid.Grid.get_final_cell_coord">[docs]</a>    <span class="k">def</span> <span class="nf">get_final_cell_coord</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: les coordonnées de la case finale</span>
+<span class="sd">        :rtype: tuple</span>
+<span class="sd">        :UC: none</span>
+<span class="sd">        :Exemple:</span>
+
+<span class="sd">        &gt;&gt;&gt; g = Grid.from_file(&#39;grid02.txt&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; g.get_final_cell_coord()</span>
+<span class="sd">        (2,7)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__final_cell</span></div>
+
+<div class="viewcode-block" id="Grid.get_player_coord"><a class="viewcode-back" href="../grid.html#grid.Grid.get_player_coord">[docs]</a>    <span class="k">def</span> <span class="nf">get_player_coord</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">i</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param i: le numero du joueur</span>
+<span class="sd">        :type i: (int)</span>
+<span class="sd">        :return: tuple des coordonnées du joueur</span>
+<span class="sd">        :rtype: (tuple)</span>
+<span class="sd">        :UC: i&lt;self.get_number_of_players()</span>
+<span class="sd">        :Exemple:</span>
+
+<span class="sd">        &gt;&gt;&gt; g = Grid.from_file(&#39;grid02.txt&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; g.get_player_coord(0)</span>
+<span class="sd">        (0,0)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="n">i</span><span class="o">&lt;</span><span class="bp">self</span><span class="o">.</span><span class="n">get_number_of_players</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__players</span><span class="p">[</span><span class="n">i</span><span class="p">]</span></div>
+    
+<div class="viewcode-block" id="Grid.get_all_players_coord"><a class="viewcode-back" href="../grid.html#grid.Grid.get_all_players_coord">[docs]</a>    <span class="k">def</span> <span class="nf">get_all_players_coord</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: dictionnaire de tous les joueurs avec comme valeur leurs coordonnées</span>
+<span class="sd">        :rtype: (dict)</span>
+<span class="sd">        :UC: none</span>
+<span class="sd">        :Exemple:</span>
+
+<span class="sd">        &gt;&gt;&gt; g = Grid.from_file(&#39;grid02.txt&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; g.get_all_players_coord()</span>
+<span class="sd">        {0: (0, 0)}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__players</span></div>
+    
+<div class="viewcode-block" id="Grid.get_walls_coord"><a class="viewcode-back" href="../grid.html#grid.Grid.get_walls_coord">[docs]</a>    <span class="k">def</span> <span class="nf">get_walls_coord</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: liste contenant les coordonnées de tout les murs de la partie.</span>
+<span class="sd">        :rtype: (list)</span>
+<span class="sd">        :UC: none</span>
+<span class="sd">        :Exemple:</span>
+
+<span class="sd">        &gt;&gt;&gt; g = Grid.from_file(&#39;grid02.txt&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; g.get_walls_coord()</span>
+<span class="sd">        [(1, 9, &#39;E&#39;), (4, 3, &#39;S&#39;), (0, 2, &#39;S&#39;), (9, 4, &#39;S&#39;), (4, 9, &#39;E&#39;), (3, 4, &#39;E&#39;)]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__walls</span></div>
+    
+<div class="viewcode-block" id="Grid.get_grille"><a class="viewcode-back" href="../grid.html#grid.Grid.get_grille">[docs]</a>    <span class="k">def</span> <span class="nf">get_grille</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: liste de la grille</span>
+<span class="sd">        :rtype: (list)</span>
+<span class="sd">        :UC: none</span>
+<span class="sd">        :Exemple:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; g = Grid.from_file(&#39;grid04.txt&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; g.get_grille()</span>
+<span class="sd">        [[&lt;cell.Cell object at 0x03E418F0&gt;, &lt;cell.Cell object at 0x03E418B0&gt;, &lt;cell.Cell object at 0x03E41830&gt;, &lt;cell.Cell object at 0x03E41690&gt;, &lt;cell.Cell object at 0x03E416F0&gt;, &lt;cell.Cell object at 0x03E41710&gt;, &lt;cell.Cell object at 0x03E41750&gt;, &lt;cell.Cell object at 0x03E41770&gt;], [&lt;cell.Cell object at 0x03E41730&gt;, &lt;cell.Cell object at 0x03E416B0&gt;, &lt;cell.Cell object at 0x03E414F0&gt;, &lt;cell.Cell object at 0x03E41530&gt;, &lt;cell.Cell object at 0x03E41570&gt;, &lt;cell.Cell object at 0x03E41550&gt;, &lt;cell.Cell object at 0x03E41510&gt;, &lt;cell.Cell object at 0x03E414D0&gt;], [&lt;cell.Cell object at 0x03E41950&gt;, &lt;cell.Cell object at 0x03E41A70&gt;, &lt;cell.Cell object at 0x03E41AD0&gt;, &lt;cell.Cell object at 0x03E41AF0&gt;, &lt;cell.Cell object at 0x03E41B10&gt;, &lt;cell.Cell object at 0x03E41A90&gt;, &lt;cell.Cell object at 0x03E41AB0&gt;, &lt;cell.Cell object at 0x03E41970&gt;], [&lt;cell.Cell object at 0x03E41A50&gt;, &lt;cell.Cell object at 0x03E419B0&gt;, &lt;cell.Cell object at 0x03E419D0&gt;, &lt;cell.Cell object at 0x03E41A30&gt;, &lt;cell.Cell object at 0x03E41A10&gt;, &lt;cell.Cell object at 0x03E41990&gt;, &lt;cell.Cell object at 0x03E41B50&gt;, &lt;cell.Cell object at 0x03E412D0&gt;], [&lt;cell.Cell object at 0x03E41350&gt;, &lt;cell.Cell object at 0x03E412F0&gt;, &lt;cell.Cell object at 0x03E41310&gt;, &lt;cell.Cell object at 0x03E3F6D0&gt;, &lt;cell.Cell object at 0x03E3F770&gt;, &lt;cell.Cell object at 0x03E3F7B0&gt;, &lt;cell.Cell object at 0x03E3F7D0&gt;, &lt;cell.Cell object at 0x03E3F7F0&gt;], [&lt;cell.Cell object at 0x03E3F830&gt;, &lt;cell.Cell object at 0x03E3F850&gt;, &lt;cell.Cell object at 0x03E3F870&gt;, &lt;cell.Cell object at 0x03E3F890&gt;, &lt;cell.Cell object at 0x03E3F8B0&gt;, &lt;cell.Cell object at 0x03E3F8F0&gt;, &lt;cell.Cell object at 0x03E3F910&gt;, &lt;cell.Cell object at 0x03E3F930&gt;], [&lt;cell.Cell object at 0x03E3F950&gt;, &lt;cell.Cell object at 0x03E3F970&gt;, &lt;cell.Cell object at 0x03E3F990&gt;, &lt;cell.Cell object at 0x03E3F9B0&gt;, &lt;cell.Cell object at 0x03E3F9D0&gt;, &lt;cell.Cell object at 0x03E3FA10&gt;, &lt;cell.Cell object at 0x03E3FA30&gt;, &lt;cell.Cell object at 0x03E3FA50&gt;], [&lt;cell.Cell object at 0x03E3FA70&gt;, &lt;cell.Cell object at 0x03E3FA90&gt;, &lt;cell.Cell object at 0x03E3FAB0&gt;, &lt;cell.Cell object at 0x03E3FAD0&gt;, &lt;cell.Cell object at 0x03E3FAF0&gt;, &lt;cell.Cell object at 0x03E3FB30&gt;, &lt;cell.Cell object at 0x03E3FB50&gt;, &lt;cell.Cell object at 0x03E3FB70&gt;]]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__grille</span></div>
+    
+<div class="viewcode-block" id="Grid.modif_coord_player"><a class="viewcode-back" href="../grid.html#grid.Grid.modif_coord_player">[docs]</a>    <span class="k">def</span> <span class="nf">modif_coord_player</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">num_player</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        modifier la position de num_player en le mettant dans la position (x,y)</span>
+<span class="sd">        </span>
+<span class="sd">        :param num_player: le numéro du joueur</span>
+<span class="sd">        :type num_player: (int)</span>
+<span class="sd">        :param x: un nombre qui représente l&#39;abscisse de la position du joueur</span>
+<span class="sd">        :type x: (int)</span>
+<span class="sd">        :param y: un nombre qui représente l&#39;ordonnée de la position du joueur</span>
+<span class="sd">        :type y: (int)</span>
+<span class="sd">        :UC: 0&lt;=x&lt;self.get_dim()[0] and 0&lt;=y&lt;self.get_dim()[1] and num_player in self.__players</span>
+<span class="sd">        :Exemple:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; g = Grid.from_file(&#39;grid03.txt&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; g.modif_coord_player(1,3,3)</span>
+<span class="sd">        &gt;&gt;&gt; g.get_player_coord(1)</span>
+<span class="sd">        (3, 3)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="mi">0</span><span class="o">&lt;=</span><span class="n">x</span><span class="o">&lt;</span><span class="bp">self</span><span class="o">.</span><span class="n">get_dim</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">assert</span> <span class="mi">0</span><span class="o">&lt;=</span><span class="n">y</span><span class="o">&lt;</span><span class="bp">self</span><span class="o">.</span><span class="n">get_dim</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">assert</span> <span class="n">num_player</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__players</span>
+        <span class="n">x_ancien</span><span class="p">,</span><span class="n">y_ancien</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__players</span><span class="p">[</span><span class="n">num_player</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__players</span><span class="p">[</span><span class="n">num_player</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__grille</span><span class="p">[</span><span class="n">y_ancien</span><span class="p">][</span><span class="n">x_ancien</span><span class="p">]</span><span class="o">.</span><span class="n">set_contenu</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__grille</span><span class="p">[</span><span class="n">y</span><span class="p">][</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">set_contenu</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">num_player</span><span class="p">))</span></div>
+
+    <span class="k">def</span> <span class="nf">set_coord_players</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">dico</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">         Cette fonction permet de modifier les coordonnées des joueurs par dico</span>
+<span class="sd">         </span>
+<span class="sd">        :param dico: un dictionnaire indiquant les coordonnées des joueurs</span>
+<span class="sd">        :type dico: dict</span>
+<span class="sd">        :CU: NONE</span>
+<span class="sd">        :Exemple:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; g = Grid.from_file(&#39;grid03.txt&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; g.set_coord_players({0:(3,2),1:(3,3)})</span>
+<span class="sd">        &gt;&gt;&gt; g.get_all_players_coord()</span>
+<span class="sd">        {0: (3, 2), 1: (3, 3)}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__players</span><span class="o">=</span><span class="n">dico</span>
+    
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: une chaine de caractères qui contient toute la grille</span>
+<span class="sd">        :rtype: str</span>
+<span class="sd">        :UC: none</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">res</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="o">+</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;-+&#39;</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_dim</span><span class="p">()[</span><span class="mi">0</span><span class="p">])])</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__grille</span><span class="p">:</span>
+            <span class="n">res1</span><span class="o">=</span><span class="s1">&#39;|&#39;</span>
+            <span class="n">res2</span><span class="o">=</span><span class="s1">&#39;+&#39;</span>
+            <span class="k">for</span> <span class="n">cel</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">cel</span><span class="o">.</span><span class="n">get_est</span><span class="p">()</span> <span class="ow">and</span> <span class="n">cel</span><span class="o">.</span><span class="n">get_sud</span><span class="p">():</span>
+                    <span class="n">res1</span><span class="o">+=</span><span class="n">cel</span><span class="o">.</span><span class="n">get_contenu</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39;|&#39;</span>
+                    <span class="k">if</span> <span class="n">cel</span><span class="o">.</span><span class="n">get_plus</span><span class="p">():</span>
+                        <span class="n">res2</span><span class="o">+=</span><span class="s1">&#39;-+&#39;</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">res2</span><span class="o">+=</span><span class="s1">&#39;- &#39;</span>
+                <span class="k">elif</span> <span class="n">cel</span><span class="o">.</span><span class="n">get_est</span><span class="p">()</span> <span class="ow">and</span>  <span class="ow">not</span> <span class="n">cel</span><span class="o">.</span><span class="n">get_sud</span><span class="p">():</span>
+                    <span class="n">res1</span><span class="o">+=</span><span class="n">cel</span><span class="o">.</span><span class="n">get_contenu</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39;|&#39;</span>
+                    <span class="k">if</span> <span class="n">l</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">cel</span><span class="p">)</span><span class="o">!=</span><span class="bp">self</span><span class="o">.</span><span class="n">__dim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="p">(</span><span class="n">cel</span><span class="o">.</span><span class="n">get_plus</span><span class="p">()</span> <span class="ow">and</span> <span class="n">l</span><span class="p">[</span><span class="n">l</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">cel</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_sud</span><span class="p">())</span> <span class="ow">or</span> <span class="n">cel</span><span class="o">.</span><span class="n">get_plus</span><span class="p">():</span>
+                            <span class="n">res2</span><span class="o">+=</span><span class="s1">&#39; +&#39;</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">res2</span><span class="o">+=</span><span class="s1">&#39;  &#39;</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">res2</span><span class="o">+=</span><span class="s1">&#39;  &#39;</span>
+                <span class="k">elif</span> <span class="ow">not</span> <span class="n">cel</span><span class="o">.</span><span class="n">get_est</span><span class="p">()</span> <span class="ow">and</span>  <span class="n">cel</span><span class="o">.</span><span class="n">get_sud</span><span class="p">():</span>
+                    <span class="n">res1</span><span class="o">+=</span><span class="n">cel</span><span class="o">.</span><span class="n">get_contenu</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39; &#39;</span>
+                    <span class="k">if</span> <span class="n">cel</span><span class="o">.</span><span class="n">get_plus</span><span class="p">():</span>
+                        <span class="n">res2</span><span class="o">+=</span><span class="s1">&#39;-+&#39;</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">res2</span><span class="o">+=</span><span class="s1">&#39;- &#39;</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">res1</span><span class="o">+=</span><span class="n">cel</span><span class="o">.</span><span class="n">get_contenu</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39; &#39;</span>
+                    <span class="k">if</span> <span class="n">cel</span><span class="o">.</span><span class="n">get_plus</span><span class="p">():</span>
+                        <span class="n">res2</span><span class="o">+=</span><span class="s1">&#39; +&#39;</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">res2</span><span class="o">+=</span><span class="s1">&#39;  &#39;</span>
+            <span class="n">res2</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">res2</span><span class="p">)</span>
+            <span class="n">res2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;+&#39;</span>
+            <span class="n">res2</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">res2</span><span class="p">)</span>
+            <span class="n">res</span><span class="o">+=</span><span class="n">res1</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">+</span><span class="n">res2</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>   
+        <span class="k">return</span> <span class="n">res</span>
+    
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: une chaine de caractères qui contient toute la grille</span>
+<span class="sd">        :rtype: str</span>
+<span class="sd">        :UC: none</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span></div>
+        
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/UL-FST-informatique-rvb.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../index.html">ICE WALKER 0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        ;<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/"> <img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>. <a href="http://www.fil.univ-lille1.fr">2019, SABIL MOHAMED AMINE and OUWAB ELIDRISSI ELMEHDI, Univ. Lille</a>.
+      Last updated on 11/12/2019.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+    </div>
+  </body>
+</html>
